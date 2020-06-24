@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class MySQLConnection {
 
-    String url = "jdbc:mysql://localhost:3306/Grafico_do_projeto?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    String url = "jdbc:mysql://localhost:3306/politicasprojeto?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     String usuario ="root";
-    String psw = "root";
+    String psw = "";
 
     public Connection getConnection(){
         try{

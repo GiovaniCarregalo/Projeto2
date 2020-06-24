@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PoliticaDAOMySQL implements PoliticaDao {
-    private String createSQL = "INSERT INTO politicas (date, value) VALUES (?,?)";
-    private String readSQL = "SELECT * FROM politicas";
-    private String updateSQL= "UPDATE politicas SET date = ?, value = ? WHERE id = ?";
-    private String deleteSQL = "DELETE FROM politicas WHERE id = ?";
+    private String createSQL = "INSERT INTO politica (date, value) VALUES (?,?)";
+    private String readSQL = "SELECT * FROM politica";
+    private String updateSQL= "UPDATE politica SET date = ?, value = ? WHERE id = ?";
+    private String deleteSQL = "DELETE FROM politica WHERE id = ?";
 
     private final MySQLConnection mysql = new MySQLConnection();
 

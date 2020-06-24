@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="politica ps2" />
         <module name="ps2" />
+        <module name="Projeto2" />
       </profile>
     </annotationProcessing>
   </component>
