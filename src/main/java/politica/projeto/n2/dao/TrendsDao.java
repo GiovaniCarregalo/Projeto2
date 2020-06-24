@@ -6,6 +6,7 @@ import politica.projeto.n2.api.Trends;
 import politica.projeto.n2.api.Politica;
 import politica.projeto.n2.dao.PoliticaDao;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class TrendsDao {
@@ -23,18 +24,17 @@ public class TrendsDao {
         List<Politica> politicas = politicaDAO.read();
         List<Politica> politicas2 = politicas;
         for (int i = 0; i < politicas.size(); i++) {
+            SimpleDateFormat poli=new SimpleDateFormat("yyyy-MM-dd");
             Politica politica = politicas.get(i);
             Result result = new Result();
-            result.setDate(String.valueOf(politica.getDate()));
+            result.setDate(poli.format(politica.getDate()));
             result.setValue(politica.getValue());
             this.dataBase.getResults().add(result);
+
         }
 
-
     }
-
     public Trends getAllTrends() {
         return this.dataBase;
     }
-
 }

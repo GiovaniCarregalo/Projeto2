@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Politica {
         private int id;
-        private String date;
+        private Date date;
 
         private int value;
 
@@ -18,7 +18,7 @@ public class Politica {
             this.value = 0;
         }
 
-        public Politica(int id, String date, int value) {
+        public Politica(int id, Date date, int value) {
             this.id = id;
             this.date = date;
             this.value = value;
@@ -28,12 +28,12 @@ public class Politica {
 
         public void setId(int id){this.id = id;}
 
-        public String getDate() {
+        public Date getDate() {
             return date;
         }
 
 
-        public void setDate(String date) {
+        public void setDate(Date date) {
             this.date = date;
         }
 

@@ -4,6 +4,10 @@ import politica.projeto.n2.api.Politica;
 
 import politica.projeto.n2.dao.PoliticaDao;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -70,14 +74,16 @@ public class InterfacePolitica {
         System.out.println(" Novos dados ");
 
         System.out.println("\nColoque a data da informação ");
-
+        try {
             Scanner s = new Scanner(System.in);
             String dataRecebida = s.nextLine();
-
-            politica.setDate(dataRecebida);
-
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            Date dt = df.parse(dataRecebida);
+            politica.setDate(dt);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
         politica.setValue(in.nextInt());
-
 
         if (politicaDAO.create(politica)) {
             System.out.println("Dados adicionados ao banco de dados");
@@ -112,11 +118,17 @@ public class InterfacePolitica {
         politica.setId(in.nextInt());
         in.nextLine();
 
-            Scanner s = new Scanner(System.in);
             System.out.println("Troque a data do valor: ");
-            String dataRecebida = s.nextLine();
 
-            politica.setDate(dataRecebida);
+        try {
+            Scanner s = new Scanner(System.in);
+            String dataRecebida = s.nextLine();
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            Date dt = df.parse(dataRecebida);
+            politica.setDate(dt);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
 
             System.out.println("Troque o valor do dia: ");
             politica.setValue(in.nextInt());
@@ -128,14 +140,11 @@ public class InterfacePolitica {
             }
         }
 
-
     private void deletePolitica() {
         List<Politica> politicas = politicaDAO.read();
 
-
         while (true) {
             System.out.println(" Lista de dias: ");
-
 
             System.out.println(politicas);
 
@@ -167,6 +176,3 @@ public class InterfacePolitica {
         }
     }
 }
-
-
-

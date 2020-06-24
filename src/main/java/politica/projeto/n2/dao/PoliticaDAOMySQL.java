@@ -25,7 +25,7 @@ public class PoliticaDAOMySQL implements PoliticaDao {
         try{
             PreparedStatement stm = conexao.prepareStatement(createSQL);
 
-            stm.setString(1, politica.getDate());
+            stm.setDate(1, new java.sql.Date(politica.getDate().getTime()));
             stm.setInt(2, politica.getValue());
             int registro =stm.executeUpdate();
             return(registro>0);
@@ -53,7 +53,7 @@ public class PoliticaDAOMySQL implements PoliticaDao {
             while (registro.next()) {
                 Politica politica = new Politica();
                 politica.setId(registro.getInt("id"));
-                politica.setDate(registro.getString("date"));
+                politica.setDate(registro.getDate("date"));
                 politica.setValue(registro.getInt("value"));
 
                 politicas.add(politica);
@@ -83,7 +83,7 @@ public class PoliticaDAOMySQL implements PoliticaDao {
         try {
             PreparedStatement stm = conexao.prepareStatement(updateSQL);
 
-            stm.setString(1, politica.getDate());
+            stm.setDate(1, new java.sql.Date(politica.getDate().getTime()));
             stm.setInt(2, politica.getValue());
             stm.setInt(3, politica.getId());
 

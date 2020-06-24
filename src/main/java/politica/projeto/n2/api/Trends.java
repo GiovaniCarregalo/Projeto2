@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public class Trends implements Serializable {
-    private String term;
+    private String term="politica";
     private List<Result> results;
 
     public Trends() {
