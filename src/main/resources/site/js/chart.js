@@ -1,10 +1,10 @@
 
 function drawChart() {
-    
+
     var margin = { top: 20, right: 20, bottom: 100, left: 50 },
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
-    
+
 
     var x = d3.scaleTime().range([0, width]);
     var y = d3.scaleLinear().range([height, 0]);
@@ -48,23 +48,23 @@ function drawChart() {
         svg.append("g")
             .attr("class", "axis")
             .call(d3.axisLeft(y));
-        
+
         svg
         .selectAll("dot")
         .data(data)
         .enter()
         .append("circle")
             .attr("class", "circle")
-            .attr("cx", function(d){return x(d.date)}) 
+            .attr("cx", function(d){return x(d.date)})
             .attr("cy", function(d){return y(d.value)})
             .attr("r", 7)
             .on("mouseover", mouseover)
             .on("mousemove", mousemove)
             .on("mouseleave", mouseleave)
-        
+
 
     }
-    
+
 
     var Tooltip = d3.select("#chart")
       .append("span")
@@ -78,7 +78,7 @@ function drawChart() {
       .style("padding", "5px")
       .style("position", "absolute")
       .style("z-index", "1")
-    
+
 
      var mouseover = function(d) {
          Tooltip
@@ -99,6 +99,8 @@ function drawChart() {
 
 
 }
+
+
 
 
 
