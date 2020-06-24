@@ -1,15 +1,15 @@
-/////// V1 ////////
+
 function drawChart() {
 
     var margin = { top: 20, right: 20, bottom: 100, left: 50 },
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
-    // set the ranges
+
     var x = d3.scaleTime().range([0, width]);
     var y = d3.scaleLinear().range([height, 0]);
 
-    // define the line
+
     var valueline = d3.line()
         .x(function (d) { return x(d.date); })
         .y(function (d) { return y(d.value); });
@@ -22,17 +22,17 @@ function drawChart() {
             "translate(" + margin.left + "," + margin.top + ")");
 
     function chart(data) {
-        // Scale the range of the data
+
         x.domain(d3.extent(data, function (d) { return d.date; }));
         y.domain(d3.extent(data, function (d) { return d.value; }));
 
-        // Add the valueline path.
+
         svg.append("path")
             .data([data])
             .attr("class", "line")
             .attr("d", valueline)
 
-        // Add the X Axis
+
         svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(0," + height + ")")
@@ -44,7 +44,7 @@ function drawChart() {
             .attr("dy", ".15em")
             .attr("transform", "rotate(-45)");
 
-        // Add the Y Axis
+
         svg.append("g")
             .attr("class", "axis")
             .call(d3.axisLeft(y));
@@ -65,7 +65,7 @@ function drawChart() {
 
     }
 
-    // create a tooltip
+
     var Tooltip = d3.select("#chart")
       .append("span")
       .style("opacity", 0)
@@ -79,7 +79,7 @@ function drawChart() {
       .style("position", "absolute")
       .style("z-index", "1")
 
-     // Three function that change the tooltip when user hover / move / leave a cell
+
      var mouseover = function(d) {
          Tooltip
              .style("opacity", 1)
@@ -101,7 +101,7 @@ function drawChart() {
 }
 
 
-/////// V1 ////////
+
 
 
 

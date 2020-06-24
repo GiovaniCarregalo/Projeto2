@@ -67,10 +67,10 @@ public class App extends Application<Configuration> {
         int escolha = 0;
         int escolha2 = 0;
 
-        System.out.println("**** Menu ****");
+        System.out.println("Menu: ");
 
-        System.out.println("Deseja modificar 0 banco de dados?");
-        System.out.println("Digite 1 para sim ou 2 para não:");
+        System.out.println("Escolha O banco de dados?");
+        System.out.println("Digite 1 para começar e 2 para cancelar");
         escolha = print.nextInt();
         if (escolha == 1) {
                 PoliticaDAOMySQL dao1 = new PoliticaDAOMySQL();
@@ -78,8 +78,7 @@ public class App extends Application<Configuration> {
 
             politica.iniciar();
             } if (escolha == 2) {
-            System.out.println("Você saiu do programa!");
-            System.out.println("Se quiser retornar ao programa, por favor de start novamente :) ");
+            System.out.println("Você saiu");
             return;
         }
     }
